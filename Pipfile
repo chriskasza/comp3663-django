@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+flake8 = "*"
+pylint = "*"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.7.2"

@@ -1,0 +1,5 @@
+[flake8]
+exclude =
+    .git
+max-complexity = -1
+max-line-length = 120
