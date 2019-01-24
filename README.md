@@ -61,12 +61,13 @@ $ pip install pipenv
 
 ### Install the packages from the Pipfile
 ```
+$ pipenv shell
 $ pipenv install
 ```
 
 ### Create database
 ```
-sudo -u postgres psql
+$ sudo -u postgres psql
 postgres=# create database comp3663;
 postgres=# create user comp3663 with encrypted password 'changeme';
 postgres=# grant all privileges on database comp3663 to comp3663;
@@ -76,5 +77,16 @@ postgres=# \q
 
 ### Update `.env` with appropriate info
 --
+
+### Run migrations
+```
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+### Start server
+```
+$ python manage.py runserver
+```
 
 
