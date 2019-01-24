@@ -70,6 +70,7 @@ sudo -u postgres psql
 postgres=# create database comp3663;
 postgres=# create user comp3663 with encrypted password 'changeme';
 postgres=# grant all privileges on database comp3663 to comp3663;
+postgres=# alter user comp3663 createdb;
 postgres=# \q
 ```
 

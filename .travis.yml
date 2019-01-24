@@ -11,6 +11,6 @@ before_script:
   - python manage.py migrate
 script:
   - flake8
-  - coverage run manage.py test --settings=djangoapp.tests_settings
+  # - coverage run manage.py test --settings=djangoapp.tests_settings
 after_success:
   - coveralls
