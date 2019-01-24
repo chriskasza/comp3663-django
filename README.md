@@ -1,5 +1,5 @@
-# comp3663-django
-Backend code, written in Django, for the term project of COMP 3663.
+# comp3663-project
+Backend code, written in Django, providing a REST API.
 
 ## Setting up a dev environment
 [Nice blog about managing Python environments](https://jacobian.org/writing/python-environment-2018/)
@@ -34,7 +34,7 @@ This will not impact the version of Python that was installed by your Linux dist
 
 ### Clone the repository (if you haven't already)
 ```
-$ git clone git@github.com:chriskasza/comp3663-django.git
+$ git clone git@github.com:chriskasza/comp3663-project.git
 ```
 
 ### Set the Python version for the project
@@ -61,4 +61,17 @@ $ pip install pipenv
 ```
 $ pipenv install
 ```
+
+### Create database
+```
+sudo -u postgres psql
+postgres=# create database comp3663;
+postgres=# create user comp3663 with encrypted password 'changeme';
+postgres=# grant all privileges on database comp3663 to comp3663;
+postgres=# \q
+```
+
+### Update `.env` with appropriate info
+--
+
 

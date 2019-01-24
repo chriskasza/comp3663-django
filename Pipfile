@@ -8,9 +8,15 @@ flake8 = "*"
 pylint = "*"
 
 [packages]
+coverage = "*"
+dj-database-url = "*"
 django = "*"
+django-heroku = "*"
 djangorestframework = "*"
 flake8 = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7.2"
