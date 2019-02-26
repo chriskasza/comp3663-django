@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-from decouple import config
-from decouple import Csv
-import django_heroku
-import dj_database_url
+#from decouple import config
+#from decouple import Csv
+#import django_heroku
+#import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,12 +24,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECERET_KEY', default='s3cr3t')
+SECRET_KEY = 'd&r@-cg4v5#^!0j@jjrt8y90&8$5uces%s-+1lq(r3xzttla4z'
+# SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = config('SECERET_KEY', default='s3cr3t')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
+DEBUG = True
+#ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -78,10 +82,17 @@ WSGI_APPLICATION = 'djangoapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=config('DATABASE_URL')
+#    )
+#}
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
 }
 
 
@@ -124,4 +135,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
