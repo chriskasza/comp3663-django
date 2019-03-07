@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.http import HttpResponse
+import requests
+
+
+def currentWeather(request):
+    result = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Wolfville,ca&APPID=1c612550bab05b2d74696169c71bdc84')
+    return HttpResponse(result)
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('current-weather', currentWeather),
 ]
