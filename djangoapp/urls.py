@@ -16,19 +16,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from djangoapp import weather 
+from djangoapp import models
 
 from django.http import HttpResponse
 import requests
+import json
 
 def currentWeather(request):
     result = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Wolfville,ca&APPID=1c612550bab05b2d74696169c71bdc84')
     w = weather.Weather(result.json())
     return HttpResponse(w.jsonResp())
 
+def extract(model):
+    return { "month": model.month, "avrTemp": model.avrTemp } 
+
 # http://localhost:8000/historicalWeather?year=1940
 def historicalWeather(request):
-    year = request.GET.get('year')
-    return HttpResponse('')
+    yearParam = request.GET.get('year')
+    allModel = models.MonthlyAvr.objects.filter(year=int(yearParam)).filter(name='KENTVILLE CDA CS')
+    result = list(map(extract, list(allModel)))
+    resp = json.dumps(result)
+    return HttpResponse(resp)
     
 urlpatterns = [
     path('weather', currentWeather),
