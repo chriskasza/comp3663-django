@@ -8,3 +8,7 @@ Install docker and docker-compose
 
 * clone the project and run ``` docker-compose up```
 
+## Running Tests
+
+```# docker-compose -f docker-compose-test.yml up```
+

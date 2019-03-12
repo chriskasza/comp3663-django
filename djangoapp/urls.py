@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# import Weather
+from djangoapp import weather 
 
 from django.http import HttpResponse
 import requests
 
-
 def currentWeather(request):
     result = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Wolfville,ca&APPID=1c612550bab05b2d74696169c71bdc84')
-    return HttpResponse(result)
+    w = weather.Weather(result.json())
+    return HttpResponse(w.jsonResp())
     
 urlpatterns = [
-    path('currentWeather', currentWeather),
+    path('weather', currentWeather),
 ]
