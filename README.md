@@ -4,11 +4,21 @@
 Backend code, written in Django, providing a REST API.
 
 ## Setting up a dev environment
+
 Install docker and docker-compose
 
-* clone the project and run ``` docker-compose up```
+installation for [Mac](https://docs.docker.com/docker-for-mac/) <br>
+https://docs.docker.com/docker-for-mac/
 
-## Running Tests
+Install for [unbuntu](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04) <br>
 
-```# docker-compose -f docker-compose-test.yml up```
+https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04
+
+### Running the project
+
+* Run ``` docker-compose up``` in the directory
+
+### Running Tests
+
+Run  ```# docker-compose -f docker-compose-test.yml up``` in the directory
 
