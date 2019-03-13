@@ -22,3 +22,5 @@ https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-o
 
 Run  ```# docker-compose -f docker-compose-test.yml up``` in the directory
 
+The tests are located in the /tests module the command above will automatically run them. 
+
