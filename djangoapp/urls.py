@@ -27,6 +27,15 @@ def currentWeather(request):
     w = weather.Weather(result.json())
     return HttpResponse(w.jsonResp())
 
+def extractNames(model):
+    return model['name']
+
+def locations(request):
+    allModel = models.MonthlyAvr.objects.values('name').distinct() ##filter(name='KENTVILLE CDA CS')
+    result = list(map(extractNames, list(allModel)))
+    resp = json.dumps(result)
+    return HttpResponse(resp)
+
 def extract(model):
     return { "month": model.month, "avrTemp": model.avrTemp } 
 
@@ -41,4 +50,5 @@ def historicalWeather(request):
 urlpatterns = [
     path('weather', currentWeather),
     path('historicalWeather', historicalWeather),
+    path('locations', locations)
 ]
