@@ -31,7 +31,7 @@ def extractNames(model):
     return model['name']
 
 def locations(request):
-    allModel = models.MonthlyAvr.objects.values('name').distinct() ##filter(name='KENTVILLE CDA CS')
+    allModel = models.MonthlyAvr.objects.values('name').distinct()
     result = list(map(extractNames, list(allModel)))
     resp = json.dumps(result)
     return HttpResponse(resp)
