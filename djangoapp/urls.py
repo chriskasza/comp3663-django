@@ -22,6 +22,15 @@ from django.http import HttpResponse
 import requests
 import json
 
+class CORSMiddleware(object):
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        response["Access-Control-Allow-Origin"] = "*"
+        return response
+
 def currentWeather(request):
     result = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Wolfville,ca&APPID=1c612550bab05b2d74696169c71bdc84')
     w = weather.Weather(result.json())

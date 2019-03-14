@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
+    'djangoapp.urls.CORSMiddleware'
 ]
 
 ROOT_URLCONF = 'djangoapp.urls'
