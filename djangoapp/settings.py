@@ -27,8 +27,8 @@ SECRET_KEY = 'd&r@-cg4v5#^!0j@jjrt8y90&8$5uces%s-+1lq(r3xzttla4z'
 # DEBUG = config('DEBUG', default=False, cast=bool)
 
 DEBUG = True
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
-ALLOWED_HOSTS = ['*'] ##'167.99.178.142', 'localhost'
+
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
