@@ -51,7 +51,8 @@ def extract(model):
 # http://localhost:8000/historicalWeather?year=1940
 def historicalWeather(request):
     yearParam = request.GET.get('year')
-    allModel = models.MonthlyAvr.objects.filter(year=int(yearParam)).filter(name='KENTVILLE CDA CS')
+    city = request.GET.get('city')
+    allModel = models.MonthlyAvr.objects.filter(year=int(yearParam)).filter(name=city)
     result = list(map(extract, list(allModel)))
     resp = json.dumps(result)
     return HttpResponse(resp)
